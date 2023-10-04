@@ -4,16 +4,16 @@ import './App.css';
 import React, { Component } from 'react'
 import NavBar from './components/NavBar';
 import News from './components/News';
-// import {
-//   BrowserRouter,
-//   Routes,
-//   Route,
-// } from "react-router-dom";
 import {
-  HashRouter,
+  BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
+// import {
+//   HashRouter,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
 export default class App extends Component {
   constructor() {
     super();
@@ -79,7 +79,7 @@ export default class App extends Component {
      
       <div>
         {/* <NavBar mode ={this.state.mode} toggleMode={toggleMode} decPage={decPage} incPage={incPage} pageSize={this.state.pageSize}/> */}
-        <HashRouter>
+        <BrowserRouter basename="/newsapp">
           <NavBar mode={this.state.mode} toggleMode={toggleMode} />
           {/* <News pageSize={20} country="us" category="technology"/> */}
           <Routes>
@@ -92,7 +92,7 @@ export default class App extends Component {
             <Route exact path="/sports" element={<News key="sports" pageSize={20} country="in" category="sports"/>}/>
             <Route exact path="/technology" element={<News key="technology" pageSize={20} country="in" category="technology"/>}/>
           </Routes>
-          </HashRouter>
+          </BrowserRouter>
       </div>
     
     )
